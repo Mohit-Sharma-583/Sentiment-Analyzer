@@ -1,6 +1,6 @@
 # Sentiment Analysis of Customer Reviews
 
-![Sentiment Analysis App](C:\Users\ASUS\Desktop\Projects\DS\Sentiment Analysis\img)
+![Sentiment Analysis App](./img/Screenshot%202025-04-06%20165118.png)
 
 ## Description
 A machine learning system that analyzes customer reviews to identify positive, negative, or neutral sentiment using NLP techniques and provides real-time sentiment analysis through a web interface.
