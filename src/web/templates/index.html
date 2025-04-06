@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #121212;
+            --text-secondary: #4a4a4a;
+            --accent: #3a86ff;
+            --accent-hover: #2667cc;
+            --positive: #22c55e;
+            --negative: #ef4444;
+            --neutral: #6b7280;
+            --border: #e5e7eb;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        html.dark-mode {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --positive: #10b981;
+            --negative: #ef4444;
+            --neutral: #9ca3af;
+            --border: #374151;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .navbar {
+            background-color: var(--bg-secondary);
+            box-shadow: var(--card-shadow);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 0.5rem;
+            padding: 0.625rem 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            border-radius: 0.5rem;
+            font-weight: 500;
+            padding: 0.625rem 1.25rem;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .sentiment-positive { 
+            color: var(--positive);
+            font-weight: 600;
+        }
+
+        .sentiment-negative { 
+            color: var(--negative);
+            font-weight: 600;
+        }
+
+        .sentiment-neutral { 
+            color: var(--neutral);
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .page-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .page-tab {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .page-tab.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .page-tab:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Badges and achievements */
+        .badge-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge i {
+            margin-right: 0.25rem;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            margin-bottom: 0.75rem;
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .achievement-info {
+            flex: 1;
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .achievement-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .achievement-progress {
+            height: 0.5rem;
+            background-color: var(--bg-primary);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .achievement-progress-bar {
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 9999px;
+        }
+
+        .streak-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .streak-fire {
+            color: #f97316;
+        }
+
+        .analysis-counter {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse-animation {
+            animation: pulse 1s ease-in-out;
+        }
+
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .text-stat {
+            color: var(--text-secondary);
+        }
+        
+        .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+        
+        .dark-mode .text-muted,
+        .dark-mode .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+
+        /* Set theme toggle button to show sun icon by default for dark mode */
+        #themeToggle i.fas::before {
+            content: "\f185"; /* Sun icon */
+        }
+
+        html:not(.dark-mode) #themeToggle i.fas::before {
+            content: "\f186"; /* Moon icon */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti"></canvas>
+    
+    <nav class="navbar navbar-expand-lg mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>Sentiment Analyzer
+            </a>
+            <div class="d-flex align-items-center">
+                <div id="analysisCount" class="me-3">Analyses: 0</div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-tabs">
+            <div class="page-tab active" data-page="analyzer">Analyzer</div>
+            <div class="page-tab" data-page="reviews">Customer Reviews</div>
+            <div class="page-tab" data-page="history">History</div>
+            <div class="page-tab" data-page="stats">Statistics</div>
+        </div>
+
+        <div id="analyzerPage" class="page-content active">
+            <!-- Single Analysis -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Analyze New Review</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="singleText" class="form-label">Enter review text to analyze:</label>
+                        <textarea class="form-control" id="singleText" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-primary mb-3" onclick="analyzeSingleText()">
+                        <i class="fas fa-search me-2"></i>Analyze
+                    </button>
+                    
+                    <div id="singleResult" class="mt-3" style="display: none;">
+                        <h6>Analysis Result:</h6>
+                        <p>Sentiment: <span id="sentimentResult"></span></p>
+                        <div class="streak-display">
+                            <i class="fas fa-fire streak-fire"></i>
+                            <span id="currentStreak">Streak: 1 day</span>
+                        </div>
+                        <div class="analysis-counter">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analysis performed: <span id="singleAnalysisCount">0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Batch Analysis -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Batch Analysis</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="batchText" class="form-label">Enter multiple reviews (one per line):</label>
+                        <textarea class="form-control" id="batchText" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-primary mb-3" onclick="analyzeBatch()">
+                        <i class="fas fa-tasks me-2"></i>Analyze Batch
+                    </button>
+                    
+                    <div id="batchResult" class="mt-3" style="display: none;">
+                        <h6>Analysis Results:</h6>
+                        <div id="batchResultsList"></div>
+                        <div class="badge-container mt-3">
+                            <span class="badge"><i class="fas fa-plus-circle"></i> 5 XP</span>
+                            <span class="badge"><i class="fas fa-medal"></i> Batch Analyzer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="reviewsPage" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Customer Reviews</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4" id="customerReviews">
+                        {% if reviews %}
+                            {% for review in reviews %}
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{ review.title }}</h6>
+                                        <div class="mb-2">
+                                            {% for i in range(review.rating|int) %}
+                                                <i class="fas fa-star text-warning"></i>
+                                            {% endfor %}
+                                            {% for i in range(5 - review.rating|int) %}
+                                                <i class="far fa-star text-warning"></i>
+                                            {% endfor %}
+                                        </div>
+                                        <p class="card-text">{{ review.text }}</p>
+                                        <p class="d-flex justify-content-between">
+                                            <small class="text-secondary">Date: {{ review.formatted_date }}</small>
+                                            <span class="sentiment-{{ review.sentiment }}">{{ review.sentiment }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="col-12">
+                                <div class="alert alert-info">
+                                    No reviews available at the moment.
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="historyPage" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Analysis History</h5>
+                </div>
+                <div class="card-body">
+                    <div id="historyList" class="list-group">
+                        <!-- Will be populated dynamically -->
+                        <div class="alert alert-info">
+                            Your analysis history will appear here as you analyze reviews.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="statsPage" class="page-content">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Your Statistics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-search mb-3" style="font-size: 2rem; color: var(--accent)"></i>
+                                    <h5 id="totalAnalyses">0</h5>
+                                    <p class="text-stat">Total Analyses</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-smile mb-3" style="font-size: 2rem; color: var(--positive)"></i>
+                                    <h5 id="positiveCount">0</h5>
+                                    <p class="text-stat">Positive Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-meh mb-3" style="font-size: 2rem; color: var(--neutral)"></i>
+                                    <h5 id="neutralCount">0</h5>
+                                    <p class="text-stat">Neutral Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-frown mb-3" style="font-size: 2rem; color: var(--negative)"></i>
+                                    <h5 id="negativeCount">0</h5>
+                                    <p class="text-stat">Negative Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <script>
+        // Statistics tracking
+        let stats = {
+            totalAnalyses: 0,
+            positiveCount: 0,
+            negativeCount: 0,
+            neutralCount: 0,
+            streak: 1,
+            history: []
+        };
+
+        // Load stats from localStorage if available
+        function loadStats() {
+            const savedStats = localStorage.getItem('sentimentAnalyzerStats');
+            if (savedStats) {
+                stats = JSON.parse(savedStats);
+                updateStatsDisplay();
+            }
+        }
+
+        // Save stats to localStorage
+        function saveStats() {
+            localStorage.setItem('sentimentAnalyzerStats', JSON.stringify(stats));
+            updateStatsDisplay();
+        }
+
+        // Update stats display
+        function updateStatsDisplay() {
+            document.getElementById('analysisCount').textContent = `Analyses: ${stats.totalAnalyses}`;
+            document.getElementById('totalAnalyses').textContent = stats.totalAnalyses;
+            document.getElementById('positiveCount').textContent = stats.positiveCount;
+            document.getElementById('negativeCount').textContent = stats.negativeCount;
+            document.getElementById('neutralCount').textContent = stats.neutralCount;
+            document.getElementById('currentStreak').textContent = `Streak: ${stats.streak} day${stats.streak !== 1 ? 's' : ''}`;
+            
+            // Update history
+            const historyList = document.getElementById('historyList');
+            if (stats.history.length > 0) {
+                historyList.innerHTML = '';
+                stats.history.slice(0, 10).forEach(item => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'list-group-item';
+                    historyItem.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>${item.text.length > 30 ? item.text.substring(0, 30) + '...' : item.text}</strong>
+                                <div><span class="sentiment-${item.sentiment}">${item.sentiment}</span></div>
+                            </div>
+                            <small class="text-muted">${new Date(item.timestamp).toLocaleString()}</small>
+                        </div>
+                    `;
+                    historyList.appendChild(historyItem);
+                });
+            } else {
+                historyList.innerHTML = `
+                    <div class="alert alert-info">
+                        Your analysis history will appear here as you analyze reviews.
+                    </div>
+                `;
+            }
+        }
+
+        // Theme toggle
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // Page tabs
+        document.querySelectorAll('.page-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                
+                // Deactivate all tabs and pages
+                document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+                
+                // Activate selected tab and page
+                this.classList.add('active');
+                document.getElementById(pageId + 'Page').classList.add('active');
+            });
+        });
+
+        // Confetti animation
+        function triggerConfetti() {
+            const confettiSettings = { target: 'confetti', max: 100, size: 1.5, animate: true, props: ['circle', 'square', 'triangle', 'line'], colors: [[165,104,246],[230,61,135],[0,199,228],[253,214,126]], clock: 25 };
+            const confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
+            
+            setTimeout(() => {
+                confetti.clear();
+            }, 2000);
+        }
+
+        async function analyzeSingleText() {
+            const text = document.getElementById('singleText').value.trim();
+            
+            // Don't analyze empty text
+            if (!text) {
+                document.getElementById('singleResult').style.display = 'none';
+                return;
+            }
+            
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    displaySingleResult(result);
+                    
+                    // Update stats
+                    stats.totalAnalyses++;
+                    document.getElementById('singleAnalysisCount').textContent = stats.totalAnalyses;
+                    
+                    if (result.sentiment === 'positive') {
+                        stats.positiveCount++;
+                    } else if (result.sentiment === 'negative') {
+                        stats.negativeCount++;
+                    } else {
+                        stats.neutralCount++;
+                    }
+                    
+                    // Add to history
+                    stats.history.unshift({
+                        text: text,
+                        sentiment: result.sentiment,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Keep history limited to last 50 items
+                    if (stats.history.length > 50) {
+                        stats.history = stats.history.slice(0, 50);
+                    }
+                    
+                    saveStats();
+                    
+                    // Show confetti for positive results
+                    if (result.sentiment === 'positive') {
+                        triggerConfetti();
+                    }
+                    
+                } else {
+                    console.error(result.error || 'Error analyzing text');
+                }
+            } catch (error) {
+                console.error('Error analyzing text:', error);
+            }
+        }
+
+        function displaySingleResult(result) {
+            const resultDiv = document.getElementById('singleResult');
+            const sentimentSpan = document.getElementById('sentimentResult');
+            
+            // Update sentiment text and class
+            sentimentSpan.textContent = result.sentiment;
+            sentimentSpan.className = `sentiment-${result.sentiment}`;
+            
+            // Add animation
+            resultDiv.classList.add('pulse-animation');
+            setTimeout(() => {
+                resultDiv.classList.remove('pulse-animation');
+            }, 1000);
+            
+            resultDiv.style.display = 'block';
+        }
+
+        async function analyzeBatch() {
+            const textarea = document.getElementById('batchText');
+            const texts = textarea.value.trim().split('\n').filter(text => text.trim());
+            
+            if (texts.length === 0) {
+                document.getElementById('batchResult').style.display = 'none';
+                return;
+            }
+            
+            try {
+                const response = await fetch('/analyze_batch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ texts })
+                });
+
+                const results = await response.json();
+                if (response.ok) {
+                    displayBatchResults(results);
+                    
+                    // Update stats
+                    stats.totalAnalyses += texts.length;
+                    
+                    results.forEach(result => {
+                        if (result.sentiment === 'positive') {
+                            stats.positiveCount++;
+                        } else if (result.sentiment === 'negative') {
+                            stats.negativeCount++;
+                        } else {
+                            stats.neutralCount++;
+                        }
+                        
+                        // Add to history
+                        stats.history.unshift({
+                            text: result.text,
+                            sentiment: result.sentiment,
+                            timestamp: new Date().toISOString()
+                        });
+                    });
+                    
+                    // Keep history limited to last 50 items
+                    if (stats.history.length > 50) {
+                        stats.history = stats.history.slice(0, 50);
+                    }
+                    
+                    saveStats();
+                    
+                    // Show confetti for batch analysis
+                    if (texts.length >= 3) {
+                        triggerConfetti();
+                    }
+                    
+                } else {
+                    console.error(results.error || 'Error analyzing batch');
+                }
+            } catch (error) {
+                console.error('Error analyzing batch:', error);
+            }
+        }
+
+        function displayBatchResults(results) {
+            const resultsList = document.getElementById('batchResultsList');
+            resultsList.innerHTML = '';
+            
+            results.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'card mb-3';
+                
+                resultDiv.innerHTML = `
+                    <div class="card-body">
+                        <p class="card-text">${result.text}</p>
+                        <p class="card-text">Sentiment: 
+                            <span class="sentiment-${result.sentiment}">${result.sentiment}</span>
+                        </p>
+                    </div>
+                `;
+                
+                resultsList.appendChild(resultDiv);
+            });
+            
+            document.getElementById('batchResult').style.display = 'block';
+        }
+
+        // Set theme from localStorage on page load - default to dark mode
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark-mode');
+            } else {
+                // Default to dark mode
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            loadStats();
+        });
+    </script>
+</body>
+</html> 

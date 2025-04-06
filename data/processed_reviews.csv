@@ -1,0 +1,101 @@
+text,rating,title,date,source,scraped_at,cleaned_text,processed_text,sentiment
+Complete waste of money.,2,Could be better,"December 05, 2024",amazon,2025-04-05T21:59:51.891519,complete waste of money,complete waste money,negative
+Complete waste of money.,2,Not bad,"December 18, 2024",amazon,2025-04-05T21:59:51.891519,complete waste of money,complete waste money,negative
+Disappointed with this product.,1,Could be better,"August 19, 2024",amazon,2025-04-05T21:59:51.891519,disappointed with this product,disappointed product,negative
+Average quality for the price.,3,Not bad,"February 26, 2025",amazon,2025-04-05T21:59:51.891519,average quality for the price,average quality price,neutral
+Exactly what I was looking for.,5,Good product,"December 17, 2024",amazon,2025-04-05T21:59:51.891519,exactly what i was looking for,exactly looking,positive
+Exactly what I was looking for.,4,Exactly as described,"October 06, 2024",amazon,2025-04-05T21:59:51.891519,exactly what i was looking for,exactly looking,positive
+"It's okay, nothing special.",3,Exactly as described,"February 19, 2025",amazon,2025-04-05T21:59:51.891519,its okay nothing special,okay nothing special,neutral
+Complete waste of money.,2,Exactly as described,"December 08, 2024",amazon,2025-04-05T21:59:51.891519,complete waste of money,complete waste money,negative
+"Does the job, but could be better.",3,Exactly as described,"August 03, 2024",amazon,2025-04-05T21:59:51.891519,does the job but could be better,job could better,neutral
+Not worth the money at all.,2,Not bad,"April 04, 2025",amazon,2025-04-05T21:59:51.891519,not worth the money at all,worth money,negative
+Would not recommend to anyone.,2,Exactly as described,"August 10, 2024",amazon,2025-04-05T21:59:51.891519,would not recommend to anyone,would recommend anyone,negative
+Average quality for the price.,3,Could be better,"March 15, 2025",amazon,2025-04-05T21:59:51.891519,average quality for the price,average quality price,neutral
+Average quality for the price.,3,Works well,"April 21, 2024",amazon,2025-04-05T21:59:51.891519,average quality for the price,average quality price,neutral
+Would not recommend to anyone.,2,Works well,"February 10, 2025",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Not worth the money at all.,2,Could be better,"February 02, 2025",amazon,2025-04-05T21:59:51.892518,not worth the money at all,worth money,negative
+Great quality and fast delivery.,5,Works well,"May 19, 2024",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Great quality and fast delivery.,5,Works well,"January 10, 2025",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+"It's okay, nothing special.",3,Good product,"December 29, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+"It's okay, nothing special.",3,Could be better,"October 30, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+Disappointed with this product.,2,Could be better,"March 10, 2025",amazon,2025-04-05T21:59:51.892518,disappointed with this product,disappointed product,negative
+Great quality and fast delivery.,5,Not bad,"July 25, 2024",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+"Not bad, but not great either.",3,Good product,"June 25, 2024",amazon,2025-04-05T21:59:51.892518,not bad but not great either,bad great either,neutral
+Great quality and fast delivery.,4,Exactly as described,"May 16, 2024",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Would not recommend to anyone.,2,Not bad,"October 17, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Average quality for the price.,3,Could be better,"June 21, 2024",amazon,2025-04-05T21:59:51.892518,average quality for the price,average quality price,neutral
+"Not bad, but not great either.",3,Works well,"September 06, 2024",amazon,2025-04-05T21:59:51.892518,not bad but not great either,bad great either,neutral
+Poor quality and slow delivery.,2,Works well,"June 18, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Highly recommend this product.,4,Not bad,"March 09, 2025",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+"Does the job, but could be better.",3,Exactly as described,"January 13, 2025",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+This product is amazing! I love it!,4,Could be better,"September 25, 2024",amazon,2025-04-05T21:59:51.892518,this product is amazing i love it,product amazing love,positive
+Product works as expected.,3,Could be better,"December 27, 2024",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Poor quality and slow delivery.,2,Good product,"September 29, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Would not recommend to anyone.,2,Exactly as described,"November 25, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Disappointed with this product.,2,Could be better,"December 16, 2024",amazon,2025-04-05T21:59:51.892518,disappointed with this product,disappointed product,negative
+Not worth the money at all.,1,Not bad,"October 17, 2024",amazon,2025-04-05T21:59:51.892518,not worth the money at all,worth money,negative
+Exactly what I was looking for.,5,Not bad,"November 11, 2024",amazon,2025-04-05T21:59:51.892518,exactly what i was looking for,exactly looking,positive
+"Does the job, but could be better.",3,Good product,"November 05, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+Product works as expected.,3,Works well,"February 27, 2025",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Poor quality and slow delivery.,2,Not bad,"March 27, 2025",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Average quality for the price.,3,Good product,"February 28, 2025",amazon,2025-04-05T21:59:51.892518,average quality for the price,average quality price,neutral
+Exactly what I was looking for.,4,Not bad,"February 20, 2025",amazon,2025-04-05T21:59:51.892518,exactly what i was looking for,exactly looking,positive
+Average quality for the price.,3,Works well,"February 17, 2025",amazon,2025-04-05T21:59:51.892518,average quality for the price,average quality price,neutral
+Would not recommend to anyone.,1,Works well,"January 31, 2025",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Complete waste of money.,1,Not bad,"May 14, 2024",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+Disappointed with this product.,1,Works well,"October 04, 2024",amazon,2025-04-05T21:59:51.892518,disappointed with this product,disappointed product,negative
+Highly recommend this product.,4,Works well,"March 18, 2025",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+"It's okay, nothing special.",3,Exactly as described,"February 22, 2025",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+"It's okay, nothing special.",3,Good product,"November 19, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+Disappointed with this product.,1,Could be better,"August 27, 2024",amazon,2025-04-05T21:59:51.892518,disappointed with this product,disappointed product,negative
+"It's okay, nothing special.",3,Good product,"August 20, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+Would not recommend to anyone.,2,Not bad,"October 18, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Great quality and fast delivery.,4,Not bad,"March 03, 2025",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Great quality and fast delivery.,5,Not bad,"June 07, 2024",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Highly recommend this product.,4,Not bad,"March 24, 2025",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+Average quality for the price.,3,Could be better,"April 24, 2024",amazon,2025-04-05T21:59:51.892518,average quality for the price,average quality price,neutral
+"Does the job, but could be better.",3,Not bad,"April 07, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+Product works as expected.,3,Good product,"June 30, 2024",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Poor quality and slow delivery.,2,Not bad,"October 05, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Great quality and fast delivery.,5,Exactly as described,"January 18, 2025",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Highly recommend this product.,5,Good product,"February 23, 2025",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+Not worth the money at all.,2,Exactly as described,"May 28, 2024",amazon,2025-04-05T21:59:51.892518,not worth the money at all,worth money,negative
+Product works as expected.,3,Could be better,"June 25, 2024",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Exactly what I was looking for.,5,Could be better,"June 22, 2024",amazon,2025-04-05T21:59:51.892518,exactly what i was looking for,exactly looking,positive
+Complete waste of money.,1,Not bad,"July 10, 2024",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+Product works as expected.,3,Not bad,"September 08, 2024",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Highly recommend this product.,5,Good product,"August 23, 2024",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+Poor quality and slow delivery.,1,Works well,"December 12, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Complete waste of money.,2,Works well,"September 16, 2024",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+Would not recommend to anyone.,1,Exactly as described,"December 22, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+"It's okay, nothing special.",3,Good product,"November 05, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+Poor quality and slow delivery.,1,Not bad,"April 14, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Great quality and fast delivery.,5,Not bad,"February 21, 2025",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+"Does the job, but could be better.",3,Could be better,"December 14, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+Would not recommend to anyone.,2,Not bad,"May 28, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Would not recommend to anyone.,1,Works well,"March 27, 2025",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Product works as expected.,3,Not bad,"July 18, 2024",amazon,2025-04-05T21:59:51.892518,product works as expected,product work expected,neutral
+Disappointed with this product.,1,Works well,"May 26, 2024",amazon,2025-04-05T21:59:51.892518,disappointed with this product,disappointed product,negative
+"It's okay, nothing special.",3,Exactly as described,"November 30, 2024",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+Would not recommend to anyone.,2,Works well,"June 17, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Would not recommend to anyone.,2,Not bad,"August 02, 2024",amazon,2025-04-05T21:59:51.892518,would not recommend to anyone,would recommend anyone,negative
+Exactly what I was looking for.,4,Exactly as described,"February 20, 2025",amazon,2025-04-05T21:59:51.892518,exactly what i was looking for,exactly looking,positive
+Highly recommend this product.,5,Works well,"September 24, 2024",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+Complete waste of money.,1,Works well,"March 18, 2025",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+Complete waste of money.,1,Good product,"June 02, 2024",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+This product is amazing! I love it!,4,Could be better,"September 12, 2024",amazon,2025-04-05T21:59:51.892518,this product is amazing i love it,product amazing love,positive
+Complete waste of money.,2,Could be better,"June 12, 2024",amazon,2025-04-05T21:59:51.892518,complete waste of money,complete waste money,negative
+Highly recommend this product.,4,Good product,"May 29, 2024",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+"Does the job, but could be better.",3,Exactly as described,"June 23, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+Highly recommend this product.,4,Could be better,"July 05, 2024",amazon,2025-04-05T21:59:51.892518,highly recommend this product,highly recommend product,positive
+Poor quality and slow delivery.,1,Not bad,"February 13, 2025",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Great quality and fast delivery.,5,Exactly as described,"November 18, 2024",amazon,2025-04-05T21:59:51.892518,great quality and fast delivery,great quality fast delivery,positive
+Average quality for the price.,3,Could be better,"May 03, 2024",amazon,2025-04-05T21:59:51.892518,average quality for the price,average quality price,neutral
+Exactly what I was looking for.,5,Exactly as described,"February 10, 2025",amazon,2025-04-05T21:59:51.892518,exactly what i was looking for,exactly looking,positive
+"Does the job, but could be better.",3,Could be better,"May 17, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+"Does the job, but could be better.",3,Exactly as described,"May 30, 2024",amazon,2025-04-05T21:59:51.892518,does the job but could be better,job could better,neutral
+Best purchase I've made in a while.,5,Exactly as described,"November 24, 2024",amazon,2025-04-05T21:59:51.892518,best purchase ive made in a while,best purchase ive made,positive
+Poor quality and slow delivery.,1,Works well,"May 06, 2024",amazon,2025-04-05T21:59:51.892518,poor quality and slow delivery,poor quality slow delivery,negative
+Best purchase I've made in a while.,5,Not bad,"May 21, 2024",amazon,2025-04-05T21:59:51.892518,best purchase ive made in a while,best purchase ive made,positive
+"It's okay, nothing special.",3,Could be better,"January 14, 2025",amazon,2025-04-05T21:59:51.892518,its okay nothing special,okay nothing special,neutral
+This product is amazing! I love it!,4,Not bad,"September 28, 2024",amazon,2025-04-05T21:59:51.892518,this product is amazing i love it,product amazing love,positive
