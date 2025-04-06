@@ -1,6 +1,9 @@
 # Sentiment Analysis of Customer Reviews
 
-This project analyzes customer reviews from e-commerce platforms to determine sentiment polarity (positive, negative, neutral) using Natural Language Processing and Machine Learning techniques.
+![Sentiment Analysis App](C:\Users\ASUS\Desktop\Projects\DS\Sentiment Analysis\img)
+
+## Description
+A machine learning system that analyzes customer reviews to identify positive, negative, or neutral sentiment using NLP techniques and provides real-time sentiment analysis through a web interface.
 
 ## Features
 
